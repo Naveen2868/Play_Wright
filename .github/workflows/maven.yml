@@ -41,16 +41,10 @@ jobs:
         cache: maven
     - name: Run xml files
       if: ${{inputs.xml_name}}
-      run: > 
-         mvn clean test 
-         -DXmlFile=${{inputs.xml_name}} 
-         -Dmaven.test.failure.ignore=true
+      run: mvn clean test -DXmlFile=${{inputs.xml_name}} -Dmaven.test.failure.ignore=true
     - name: Run tests
       if: ${{inputs.test_names}}
-      run: > 
-         mvn clean test 
-         -Dtest=${{inputs.test_names}} 
-         -Dmaven.test.failure.ignore=true
+      run: mvn clean test -Dtest=${{inputs.test_names}} -Dmaven.test.failure.ignore=true
     - name: archive artifact
       uses: actions/upload-artifact@v3
       with:
