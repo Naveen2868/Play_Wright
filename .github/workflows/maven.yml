@@ -12,13 +12,13 @@ on:
   workflow_dispatch:
     inputs:
       browser_name:
-        description: Name of the browser
+        description: 'Name of the browser'
         type: string
         default: 'chrome'
-      test_names:
+      testname:
         description: 'Run tests'
         type: string
-      xml_name:
+      xmlname:
         description: 'Run xml files'
         type: string
   push:
@@ -40,11 +40,11 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Run xml files
-      if: ${{inputs.xml_name}}
-      run: mvn clean test -DXmlFile=${{inputs.xml_name}} -Dmaven.test.failure.ignore=true
+      if: ${{inputs.xmlname}}
+      run: mvn clean test -DXmlFile=${{inputs.xmlname}} -Dmaven.test.failure.ignore=true
     - name: Run tests
-      if: ${{inputs.test_names}}
-      run: mvn clean test -Dtest=${{inputs.test_names}} -Dmaven.test.failure.ignore=true
+      if: ${{inputs.testname}}
+      run: mvn clean test -Dtest=${{inputs.testname}} -Dmaven.test.failure.ignore=true
     - name: archive artifact
       uses: actions/upload-artifact@v3
       with:
