@@ -5,6 +5,7 @@ import java.util.Properties;
 import com.qa.opencart.pages.DemoWebShopMainPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import com.microsoft.playwright.Page;
@@ -23,7 +24,7 @@ public class BaseTest {
 
 	@Parameters({ "browser" })
 	@BeforeTest
-	public void setup(String browserName) {
+	public void setup(@Optional("chrome") String browserName) {
 		pf = new PlaywrightFactory();
 		prop = pf.init_prop();
 		if (browserName != null) {
