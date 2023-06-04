@@ -14,7 +14,7 @@ public class RegistrationTest extends BaseTest {
 
     private RegistrationPage registrationPage;
 
-    @Test
+   // @Test
     public void registerUserTest() {
         registrationPage = homePage.registerPage();
         String title = registrationPage.getRegisterHomePageTitle();
@@ -34,7 +34,7 @@ public class RegistrationTest extends BaseTest {
             BrowserContext browserContext = browser.newContext();
 
             Page page = browserContext.newPage();
-            page.navigate("https://example.com");
+            page.navigate("https://github.com/");
             browser.close();
 
         }

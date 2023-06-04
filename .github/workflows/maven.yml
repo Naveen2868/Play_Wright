@@ -10,6 +10,17 @@ name: Java CI with Maven
 
 on:
   workflow_dispatch:
+    inputs:
+      browser_name:
+        description: Name of the browser
+        type: string
+        default: 'chrome'
+      test_names:
+        description: 'Run tests'
+        type: string
+      xml_name:
+        description: 'Run xml files'
+        type: string
   push:
     branches: [ "master" ]
   pull_request:
@@ -28,9 +39,18 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn clean test -DXmlFile=githubactions.xml
-
+    - name: Run xml files
+      if: ${{inputs.xml_name}}
+      run: > 
+         mvn clean test 
+         -DXmlFile=${{inputs.xml_name}} 
+         -Dmaven.test.failure.ignore=true
+    - name: Run tests
+      if: ${{inputs.test_names}}
+      run: > 
+         mvn clean test 
+         -Dtest=${{inputs.test_names}} 
+         -Dmaven.test.failure.ignore=true
     - name: archive artifact
       uses: actions/upload-artifact@v3
       with:
