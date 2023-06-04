@@ -1,6 +1,8 @@
 package com.qa.opencart.pages;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.MouseButton;
 
 public class LoginPage {
 
@@ -28,6 +30,9 @@ public class LoginPage {
 	}
 	
 	public boolean doLogin(String appUserName, String appPassword) {
+
+		//page.locator("").click(new Locator.ClickOptions().setButton(MouseButton.RIGHT));
+
 		System.out.println("App creds: " + appUserName + ":" + appPassword);
 		page.fill(emailId, appUserName);
 		page.fill(password, appPassword);

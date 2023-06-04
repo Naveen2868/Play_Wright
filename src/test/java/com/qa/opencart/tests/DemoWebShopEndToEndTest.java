@@ -5,7 +5,7 @@ import com.qa.opencart.pages.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class DemoWebShopLoginTest extends BaseTest {
+public class DemoWebShopEndToEndTest extends BaseTest {
 
     private DemoWebShopLoginPage loginPage;
     private DemoWebShopHomePage homePage;

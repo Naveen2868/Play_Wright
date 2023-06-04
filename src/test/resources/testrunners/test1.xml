@@ -7,14 +7,11 @@
 		<listener class-name="com.qa.opencart.listeners.ExtentReportListener" />
 	</listeners>
 
-	<test name="Open Cart register Test_chrome">
+	<test name="Open Cart DemoWebShopEndToEndTest on chrome">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.qa.opencart.tests.DemoWebShopLoginTest" />
+			<class name="com.qa.opencart.tests.DemoWebShopEndToEndTest" />
 		</classes>
 	</test>
-
-
-
 
 </suite>
