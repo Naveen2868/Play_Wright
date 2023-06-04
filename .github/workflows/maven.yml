@@ -11,13 +11,13 @@ name: Java CI with Maven
 on:
   workflow_dispatch:
     inputs:
-      browser_name:
+      browsername:
         description: 'Name of the browser'
         type: string
         default: 'chrome'
-      testname:
-        description: 'Run tests'
-        type: string
+      #testname:
+       # description: 'Run tests'
+       # type: string
       xmlname:
         description: 'Run xml files'
         type: string
@@ -42,9 +42,9 @@ jobs:
     - name: Run xml files
       if: ${{inputs.xmlname}}
       run: mvn clean test -DXmlFile=${{inputs.xmlname}} -Dmaven.test.failure.ignore=true
-    - name: Run tests
-      if: ${{inputs.testname}}
-      run: mvn clean test -Dtest=${{inputs.testname}} -Dmaven.test.failure.ignore=true
+    #- name: Run tests
+    #  if: ${{inputs.testname}}
+     # run: mvn clean test -Dtest=${{inputs.testname}} -Dmaven.test.failure.ignore=true
     - name: archive artifact
       uses: actions/upload-artifact@v3
       with:
