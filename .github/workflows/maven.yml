@@ -49,4 +49,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: surefire reports
-        path: ./target/surefire-reports/*.html
+        path: ./build/TestExecutionReport.html

@@ -42,13 +42,13 @@ public class ExtentReportListener implements ITestListener {
 		
 		extentReports = new ExtentReports();
 		ExtentSparkReporter reporter = new ExtentSparkReporter(OUTPUT_FOLDER + FILE_NAME);
-		reporter.config().setReportName("Open Cart Automation Test Results");
+		reporter.config().setReportName("Demo webshop Automation Test Results");
 		extentReports.attachReporter(reporter);
 		extentReports.setSystemInfo("System", "Windows");
 		extentReports.setSystemInfo("Author", "Naveen Reddy Aleti");
 		extentReports.setSystemInfo("Build#", "1.1");
 		extentReports.setSystemInfo("Team", "OMS");
-		extentReports.setSystemInfo("Customer Name", "NAL");
+		extentReports.setSystemInfo("Customer Name", "NAVEEN");
 
 		//extentReports.setSystemInfo("ENV NAME", System.getProperty("env"));
 
