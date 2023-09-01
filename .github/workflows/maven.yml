@@ -20,6 +20,7 @@ on:
        # type: string
       xmlname:
         description: 'Run xml files'
+        default: githubactions.xml
         type: string
   push:
     branches: [ "master" ]
@@ -42,9 +43,6 @@ jobs:
     - name: Run xml files
       if: ${{inputs.xmlname}}
       run: mvn clean test -DXmlFile=${{inputs.xmlname}} -Dmaven.test.failure.ignore=true
-    #- name: Run tests
-    #  if: ${{inputs.testname}}
-     # run: mvn clean test -Dtest=${{inputs.testname}} -Dmaven.test.failure.ignore=true
     - name: archive artifact
       uses: actions/upload-artifact@v3
       with:
